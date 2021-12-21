@@ -8,6 +8,17 @@ navigator.serviceWorker.register("sw.js", "./firebase-messaging-sw.js").then(reg
 })
 }
 
+if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("./firebase-messaging-sw.js").then(registration =>{
+        console.log("SW Registered!");
+        console.log(registration)
+    }).catch(error =>{
+        console.log("SW Registered Failed!sdasdsd");
+        console.log(error)
+    })
+    }
+    
+
 let cardElement = document.querySelector(".card");
 
 cardElement.addEventListener("click", flip);
@@ -87,7 +98,7 @@ import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/9.4.0
 // Get registration token. Initially this makes a network call, once retrieved
 // subsequent calls to getToken will return from cache.
 const messaging = getMessaging();
-getToken(messaging, { vapidKey: 'BPVUEv2NnZwuHUkcprFyuMUxCvUkLUmobWAMuA9j_Dk39OMc_sfV3KUn1dokJ8a09-j4KpaHqlqAgkEe2W3UBac' }).then((currentToken) => {
+getToken(messaging, { vapidKey: 'BGXCNFZSAJDiKHLS_BNyCRpJa7Dn-TIjlAuTbUfm4mN__mHzpzYAOl5FusJ_MSuo6tuBZRGuyMQzF-L3kVKBoCo' }).then((currentToken) => {
   if (currentToken) {
     // Send the token to your server and update the UI if necessary
     // ...
