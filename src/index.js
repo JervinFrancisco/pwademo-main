@@ -91,8 +91,7 @@ import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/9.4.0
 const messaging = getMessaging();
 getToken(messaging, { vapidKey: 'BGXCNFZSAJDiKHLS_BNyCRpJa7Dn-TIjlAuTbUfm4mN__mHzpzYAOl5FusJ_MSuo6tuBZRGuyMQzF-L3kVKBoCo' }).then((currentToken) => {
   if (currentToken) {
-    // Send the token to your server and update the UI if necessary
-    // ...
+  console.log(currentToken)
   } else {
     // Show permission request UI
     console.log('No registration token available. Request permission to generate one.');
