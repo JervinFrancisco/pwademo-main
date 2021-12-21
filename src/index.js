@@ -1,5 +1,5 @@
 if("serviceWorker" in navigator){
-navigator.serviceWorker.register("sw.js").then(registration =>{
+navigator.serviceWorker.register("sw.js", "firebase-messaging-sw.js").then(registration =>{
     console.log("SW Registered!");
     console.log(registration)
 }).catch(error =>{
@@ -100,3 +100,5 @@ getToken(messaging, { vapidKey: 'BPVUEv2NnZwuHUkcprFyuMUxCvUkLUmobWAMuA9j_Dk39OM
   console.log('An error occurred while retrieving token. ', err);
   // ...
 });
+
+console.log(messaging)
