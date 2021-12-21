@@ -17,4 +17,4 @@ const firebaseConfig = {
 
   const messaging = getMessaging();
 
-  console.log("hey")
+
