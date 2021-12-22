@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script type="module" src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script  type="module" src="https://www.gstatic.com/firebasejs/8.3.0/firebase-messaging.js"></script>
+   
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +12,9 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="manifest" href="./manifest.json">
         <link rel="apple-touch-icon" href="images/logo192.png">
+     
+     
+      
     </head>
     <body>
 
@@ -51,14 +57,16 @@
             <div class="card-body">
               <p class="card-text">This can be downloaded and installed - and behaves as native application. </p>
               <p class="card-text">This application is also offline first - so works when network is offline, the shell still remains the same. But when the network does come back on - it will function back as how the application was.</p>
+        
+            
             </div>
             <div class="card-footer text-muted">
               Created By: Jervin Francisco
             </div>
           </div>
-        <script type="module" src="src/index.js"></script>
-        <script type="module" src="./firebase-messaging-sw.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+          
+        
     </body>
-
+    <script type= "module" src="src/index.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>

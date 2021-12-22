@@ -65,41 +65,29 @@ function checkTime(i) {
     return i;
 }
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCkB6MMwDWAhFCMbIkjBHod6jJpnyemrzk",
-    authDomain: "pwa-app-71f0a.firebaseapp.com",
-    projectId: "pwa-app-71f0a",
-    storageBucket: "pwa-app-71f0a.appspot.com",
-    messagingSenderId: "6983471809",
-    appId: "1:6983471809:web:9b5f702ce27ef8e3a8fa40"
-  };
-  
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+  apiKey: "AIzaSyCkB6MMwDWAhFCMbIkjBHod6jJpnyemrzk",
+  authDomain: "pwa-app-71f0a.firebaseapp.com",
+  projectId: "pwa-app-71f0a",
+  storageBucket: "pwa-app-71f0a.appspot.com",
+  messagingSenderId: "6983471809",
+  appId: "1:6983471809:web:9b5f702ce27ef8e3a8fa40"
+};
 
-  console.log(app)
+firebase.initializeApp(firebaseConfig);
 
-import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-messaging.js";
+const messaging = firebase.messaging()
 
-// Get registration token. Initially this makes a network call, once retrieved
-// subsequent calls to getToken will return from cache.
-const messaging = getMessaging();
-getToken(messaging, { vapidKey: 'BGXCNFZSAJDiKHLS_BNyCRpJa7Dn-TIjlAuTbUfm4mN__mHzpzYAOl5FusJ_MSuo6tuBZRGuyMQzF-L3kVKBoCo' }).then((currentToken) => {
-  if (currentToken) {
-  console.log(currentToken)
-  } else {
-    // Show permission request UI
-    console.log('No registration token available. Request permission to generate one.');
-    // ...
-  }
-}).catch((err) => {
-  console.log('An error occurred while retrieving token. ', err);
-  // ...
-});
 
-console.log(messaging)
+    Notification.requestPermission().then(permission =>{
+        if (permission =='granted') {
+         messaging.getToken({vapidKey:"BGXCNFZSAJDiKHLS_BNyCRpJa7Dn-TIjlAuTbUfm4mN__mHzpzYAOl5FusJ_MSuo6tuBZRGuyMQzF-L3kVKBoCo"}).then(currentToken =>{
+             console.log(currentToken)
+         })
+          }
+          if (permission === 'denied') {
+            console.log('Permission wasn\'t granted. Allow a retry.');
+            return;
+          }
+        });
+     
