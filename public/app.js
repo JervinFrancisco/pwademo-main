@@ -16,6 +16,7 @@ const messaging = firebase.messaging()
         if (permission =='granted') {
          messaging.getToken({vapidKey:"BGXCNFZSAJDiKHLS_BNyCRpJa7Dn-TIjlAuTbUfm4mN__mHzpzYAOl5FusJ_MSuo6tuBZRGuyMQzF-L3kVKBoCo"}).then(currentToken =>{
              console.log(currentToken)
+             return;
          })
           }
           if (permission === 'denied') {
